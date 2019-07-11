@@ -1,0 +1,9 @@
+<div class="row">
+    <table>
+        <tr *ngFor="let user of users; let i=index">
+            <td>{{ user.username }}</td>
+            <td><button (click)="activateEdit(i)">Edit</button></td>
+            <td><button (click)="deleteUser(i)">Remove</button></td>
+        </tr>
+    </table>
+</div>

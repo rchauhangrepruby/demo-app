@@ -1,10 +1,10 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const userRoutes = require("./routes/user");
+const Routes = require("./routes/index");
 const app = express();
 
-require('./models/user');
+require('./models');
 
 // Connect mongo
 mongoose.connect("mongodb://127.0.0.1:27017/UserDB");
@@ -18,7 +18,7 @@ db.once('open', function callback() {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use('/', userRoutes);
+app.use('/', Routes);
 
 app.listen(3000, () => {
   console.log("Listening at :3000...");
